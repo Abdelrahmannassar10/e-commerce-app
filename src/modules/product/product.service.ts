@@ -2,13 +2,19 @@ import { Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { ConfigService } from '@nestjs/config';
+import { AdminRepository, CustomerRepository, SellerRepository } from '@models/index';
 
 @Injectable()
 export class ProductService {
-  constructor(private readonly configService:ConfigService){}
+  constructor(
+    private readonly configService: ConfigService,
+    private readonly customerRepository: CustomerRepository,
+    private readonly sellerRepository:SellerRepository,
+    private readonly adminRepository:AdminRepository
+  ) {}
   create(createProductDto: CreateProductDto) {
     console.log(this.configService.get('db').url);
-    
+
     return 'This action adds a new product';
   }
 

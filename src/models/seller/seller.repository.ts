@@ -4,7 +4,7 @@ import { Seller } from "./seller.schema";
 import { Model } from "mongoose";
 
 export class SellerRepository extends AbstractRepository<Seller>{
-    constructor(@InjectModel(Seller.name) sellerModel:Model<Seller>){
+    constructor(@InjectModel(Seller.name) private readonly sellerModel:Model<Seller>){
         super(sellerModel);
     }
 }

@@ -8,14 +8,7 @@ import { BrandModule } from './modules/brand/brand.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import devConfig from './config/env/dev.config';
 import { MongooseModule } from '@nestjs/mongoose';
-import {
-  Admin,
-  adminSchema,
-  Seller,
-  sellerSchema,
-  User,
-  userSchema,
-} from './models';
+import { CustomerModule } from './modules/customer/customer.module';
 
 @Module({
   imports: [
@@ -26,26 +19,12 @@ import {
         uri: configService.get('db').url,
       }),
     }),
-    MongooseModule.forFeature([
-      {
-        name: User.name,
-        schema: userSchema,
-        discriminators: [
-          {
-            name: Admin.name,
-            schema: adminSchema,
-          },
-          {
-            name: Seller.name,
-            schema: sellerSchema,
-          },
-        ],
-      },
-    ]),
+
     AuthModule,
     ProductModule,
     CategoryModule,
     BrandModule,
+    CustomerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

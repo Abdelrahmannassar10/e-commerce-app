@@ -4,7 +4,7 @@ import { Admin } from "./admin.schema";
 import { Model } from "mongoose";
 
 export class AdminRepository extends AbstractRepository<Admin>{
-    constructor(@InjectModel(Admin.name) adminModel:Model<Admin>){
+    constructor(@InjectModel(Admin.name) private readonly adminModel:Model<Admin>){
         super(adminModel);
     }
 }
