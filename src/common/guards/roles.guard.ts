@@ -1,4 +1,4 @@
-import { PUBLIC, Roles } from '@common/decorators';
+import { PUBLIC, ROLE, Roles } from '@common/decorators';
 import {
   Injectable,
   CanActivate,
@@ -12,11 +12,12 @@ export class RolesGuard implements CanActivate {
   constructor(private reflector: Reflector) {}
 
   canActivate(context: ExecutionContext): boolean {
-    const roles = this.reflector.getAllAndMerge(Roles, [context.getHandler() ,context.getClass()]);
-    const request = context.switchToHttp().getRequest();
-    const publicVal = this.reflector.get(PUBLIC,context.getHandler);
+    const publicVal = this.reflector.get(PUBLIC,context.getHandler() );
     if(publicVal) return true;
+    const roles = this.reflector.getAllAndMerge(ROLE, [context.getHandler() ,context.getClass()]);
+    const request = context.switchToHttp().getRequest();
     const user = request.user;
+    
     if (!roles.includes(user.role))
       throw new UnauthorizedException('you are Unauthorized');
     return true;

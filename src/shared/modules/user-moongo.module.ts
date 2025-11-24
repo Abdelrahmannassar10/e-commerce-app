@@ -1,3 +1,4 @@
+import { UserRepository } from '@models/common/user.repository';
 import {
   Admin,
   AdminRepository,
@@ -28,7 +29,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       },
     ]),
   ],
-  providers: [AdminRepository, CustomerRepository, SellerRepository],
-  exports: [AdminRepository, CustomerRepository, SellerRepository],
+  providers: [AdminRepository, CustomerRepository, SellerRepository,UserRepository],
+  exports: [AdminRepository, CustomerRepository, SellerRepository,UserRepository],
 })
 export class UserMongoModule {}

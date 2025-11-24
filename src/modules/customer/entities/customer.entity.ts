@@ -1,1 +1,5 @@
-export class Customer {}
+import { Types } from "mongoose";
+
+export class Customer {
+
+}

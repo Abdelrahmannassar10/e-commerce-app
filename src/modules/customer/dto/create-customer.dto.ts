@@ -1,1 +1,5 @@
-export class CreateCustomerDto {}
+import { IsNotEmpty, IsString, MinLength } from "class-validator";
+
+export class CreateCustomerDto {
+
+}

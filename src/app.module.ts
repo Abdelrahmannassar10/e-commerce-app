@@ -9,6 +9,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import devConfig from './config/env/dev.config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CustomerModule } from './modules/customer/customer.module';
+import { CommonModule } from '@shared/modules';
+import { CouponModule } from './modules/coupon/coupon.module';
 
 @Module({
   imports: [
@@ -19,12 +21,13 @@ import { CustomerModule } from './modules/customer/customer.module';
         uri: configService.get('db').url,
       }),
     }),
-
+    CommonModule,
     AuthModule,
     ProductModule,
     CategoryModule,
     BrandModule,
     CustomerModule,
+    CouponModule,
   ],
   controllers: [AppController],
   providers: [AppService],

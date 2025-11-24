@@ -1,1 +1,1 @@
-export * from './modules/user-moongo.module'
+export * from './modules/'
