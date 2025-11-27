@@ -41,7 +41,9 @@ export class ProductService {
 
   async update(id: string | Types.ObjectId, product: Product) {
     const productExist = await this.findOne(id);
-    product.stock = +productExist.stock;
+    product.stock =product.stock + productExist.stock;
+    console.log(product.stock);
+    
     //colors
     const colors = this.addToSet(productExist.colors, product.colors);
     product.colors = Array.from(colors);

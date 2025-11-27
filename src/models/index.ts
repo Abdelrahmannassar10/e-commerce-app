@@ -24,3 +24,6 @@ export * from './coupon/coupon.repository'
 
 export * from './cart/cart.schema'
 export * from './cart/cart.repository'
+
+export * from './order/order.schema'
+export * from './order/order.repository'

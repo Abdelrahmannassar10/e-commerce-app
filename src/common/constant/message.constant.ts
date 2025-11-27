@@ -12,5 +12,6 @@ export const MESSAGE ={
     Category:{...generateMessage('Category')},
     Brand:{...generateMessage('Brand')},
     Product:{...generateMessage('Product')},
-    Coupon:{...generateMessage('Coupon')}
+    Coupon:{...generateMessage('Coupon')},
+    Cart:{...generateMessage('Cart')}
 }
