@@ -275,13 +275,3 @@ Built with focus, structure, and real-world thinking
 
 </div>
 
----
-
-If you want next, I can:
-
-* Add **Swagger UI screenshots**
-* Generate a **Postman collection JSON**
-* Make a **short recruiter README**
-* Add **system flow diagrams (Cart → Order → Stock)**
-
-Just say the word ✨
