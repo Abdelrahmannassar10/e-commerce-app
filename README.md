@@ -1,98 +1,287 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+<div align="center">
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# 🛍️ E-Commerce Backend API
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+### Built with NestJS • MongoDB • TypeScript
 
-## Description
+A production-ready, scalable **E-commerce Backend** designed with clean architecture, real business logic, and enterprise patterns.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[![NestJS](https://img.shields.io/badge/NestJS-red)](https://nestjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-green)](https://www.mongodb.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-blue)](https://www.typescriptlang.org/)
+[![JWT](https://img.shields.io/badge/Auth-JWT-orange)](https://jwt.io/)
 
-## Project setup
+</div>
 
-```bash
-$ pnpm install
+---
+
+## 🌟 Why This Project?
+
+This backend simulates a **real-world e-commerce system**, not a tutorial CRUD app.
+
+It includes:
+
+* Role-based users
+* Secure authentication flows
+* Cart & order lifecycle
+* Discount & coupon logic
+* Stock validation
+* Clean separation of concerns
+
+Built to be **extendable**, **maintainable**, and **portfolio-ready**.
+
+---
+
+## 🧠 Core Capabilities
+
+<table>
+<tr>
+<td width="50%">
+
+### 🔐 Authentication
+
+* Email + OTP verification
+* JWT-based login
+* Password reset
+* Google OAuth
+* Secure hashing
+
+</td>
+<td width="50%">
+
+### 👥 User Roles
+
+* Admin
+* Customer
+* Seller
+* Mongoose discriminators
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+### 🏷️ Product Management
+
+* Dynamic pricing
+* Fixed & percentage discounts
+* Stock tracking
+* Colors & sizes merging
+
+</td>
+<td>
+
+### 🛒 Cart & Orders
+
+* Cart persistence
+* Stock validation
+* Coupon support
+* Order lifecycle
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🧱 Tech Stack
+
+| Layer        | Technology                         |
+| ------------ | ---------------------------------- |
+| Backend      | NestJS                             |
+| Database     | MongoDB + Mongoose                 |
+| Language     | TypeScript                         |
+| Auth         | JWT, Google OAuth                  |
+| Architecture | Repository Pattern, Modular Design |
+
+---
+
+## 🏗️ Architecture Overview
+
+```txt
+src/
+├── common/          # helpers, constants, shared types
+├── models/          # schemas & repositories
+├── modules/
+│   ├── auth
+│   ├── user
+│   ├── product
+│   ├── category
+│   ├── brand
+│   ├── cart
+│   ├── order
+│   └── coupon
+├── app.module.ts
+└── main.ts
 ```
 
-## Compile and run the project
+**Design principles used**
 
-```bash
-# development
-$ pnpm run start
+* Abstract Repository Pattern
+* DTO-based validation
+* Service-layer business rules
+* Mongoose Virtuals
+* Clear domain separation
 
-# watch mode
-$ pnpm run start:dev
+---
 
-# production mode
-$ pnpm run start:prod
+## 📡 API Overview
+
+### 🔐 Auth
+
+| Method | Endpoint                |
+| ------ | ----------------------- |
+| POST   | `/auth/register`        |
+| POST   | `/auth/login`           |
+| POST   | `/auth/confirm-email`   |
+| POST   | `/auth/forget-password` |
+| POST   | `/auth/reset-password`  |
+| POST   | `/auth/google`          |
+
+---
+
+### 🏷️ Products
+
+| Method | Endpoint        |
+| ------ | --------------- |
+| POST   | `/products`     |
+| GET    | `/products/:id` |
+
+---
+
+### 🗂️ Categories
+
+| Method | Endpoint          |
+| ------ | ----------------- |
+| POST   | `/categories`     |
+| PUT    | `/categories/:id` |
+| GET    | `/categories/:id` |
+
+---
+
+### 🏭 Brands
+
+| Method | Endpoint      |
+| ------ | ------------- |
+| POST   | `/brands`     |
+| GET    | `/brands/:id` |
+
+---
+
+### 🛒 Cart
+
+| Method | Endpoint           |
+| ------ | ------------------ |
+| POST   | `/cart`            |
+| PUT    | `/cart`            |
+| GET    | `/cart`            |
+| DELETE | `/cart/:productId` |
+| DELETE | `/cart`            |
+
+---
+
+### 📦 Orders
+
+| Method | Endpoint  |
+| ------ | --------- |
+| POST   | `/orders` |
+
+---
+
+### 🎟️ Coupons
+
+| Method | Endpoint   |
+| ------ | ---------- |
+| POST   | `/coupons` |
+
+---
+
+## 🔐 Authentication
+
+All protected routes require a JWT token:
+
+```http
+Authorization: Bearer <token>
 ```
 
-## Run tests
+---
 
-```bash
-# unit tests
-$ pnpm run test
+## ⚙️ Environment Setup
 
-# e2e tests
-$ pnpm run test:e2e
+Create a `.env` file:
 
-# test coverage
-$ pnpm run test:cov
+```env
+PORT=3000
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
+
+GOOGLE_CLIENT_ID=your_google_client_id
+
+MAIL_HOST=smtp_host
+MAIL_USER=email
+MAIL_PASS=password
 ```
 
-## Deployment
+---
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+## 🚀 Running the Project
 
 ```bash
-$ pnpm install -g @nestjs/mau
-$ mau deploy
+npm install
+npm run start:dev
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Server will run at:
 
-## Resources
+```
+http://localhost:3000
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+---
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## 🧪 Testing
 
-## Support
+* Tested using **Postman**
+* JWT-secured routes
+* Realistic business edge cases handled
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+## 🛣️ Roadmap
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+* Payment gateway integration
+* Product reviews & ratings
+* Pagination & filtering
+* Admin dashboard
+* Order tracking history
 
-## License
+---
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 👨‍💻 Author
+
+**Abdelrahman Atef Mohamed Nassar**
+Computer Science Student | Backend & Flutter Developer
+
+* GitHub: [https://github.com/Abdelrahmannassar10](https://github.com/Abdelrahmannassar10)
+* LinkedIn: [https://www.linkedin.com/in/Abdelrahman-Nassar-dev253](https://www.linkedin.com/in/Abdelrahman-Nassar-dev253)
+
+---
+
+<div align="center">
+
+⭐ If you like this project, consider giving it a star
+Built with focus, structure, and real-world thinking
+
+</div>
+
+---
+
+If you want next, I can:
+
+* Add **Swagger UI screenshots**
+* Generate a **Postman collection JSON**
+* Make a **short recruiter README**
+* Add **system flow diagrams (Cart → Order → Stock)**
+
+Just say the word ✨
