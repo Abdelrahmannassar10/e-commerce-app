@@ -1,5 +1,3 @@
-](https://roadmap.sh/projects/ecommerce-api)<div align="center">
-
 # 🛍️ E-Commerce Backend API
 
 ### Built with NestJS • MongoDB • TypeScript
